@@ -1,0 +1,42 @@
+
+.GridItem{
+    width: 18rem;
+    height: 18rem;
+    object-fit: contain;
+    grid-column: 4/span 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.GridItem img{
+    width: 100%;
+}
+
+.GridItem:nth-child(even){
+    grid-column: 4/span 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+}
+
+.GridItem:nth-child(3){
+    grid-column: 4/span 2;
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+}
+/* .GridItem:nth-child(2){
+    grid-column: 3;
+    grid-row: 2/span 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.GridItem:nth-child(3){
+    grid-column: 3;
+    grid-row: 3/span 1;
+    align-self: center;
+    justify-self: center;
+} */
+
