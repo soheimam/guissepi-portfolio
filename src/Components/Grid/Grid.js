@@ -13,6 +13,8 @@ function Grid() {
         <GridItem />
         <GridItem />
         <GridItem />
+        <GridItem />
+        <GridItem />
     </div>
   );
 }

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from "react";
 import './Griditem.css';
-import image1 from './images/1.jpg';
-
+import image from './images/1.jpg';
+import Lightbox from "../Lightbox/LightBox.js";
 
 function GridItem() {
   return (
     <div className="GridItem">
-
-      <img src={image1}/>
+        <Lightbox image={image} />
     </div>
   );
 }
