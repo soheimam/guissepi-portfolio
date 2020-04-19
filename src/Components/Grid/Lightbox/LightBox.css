@@ -1,9 +1,20 @@
 
+/* /Users/soheima/git/guissepi-portfolio/src/Components/Grid/Lightbox/fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf */
+@font-face {
+    src: url('./fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf'); /* IE < 9 */
+    src: url('./fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf') format("woff2");
+    font-family: 'Fit-Variable';
+    font-style: normal;
+    font-weight: normal;
+    }
+
 .shownLightbox{
     display: grid;
+    font-family: 'Fit-Variable';
+    font-size: 3.5rem;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    background-color: rgb(255, 235, 181, 0.5);
+    background-color: rgb(255, 235, 181, 0.8);
     align-items: center;
     position: fixed;
     top: 0;
@@ -17,9 +28,16 @@
     animation-iteration-count: 1; 
     animation-fill-mode: both;
     
-    
+}
+
+.shownLightbox p {
+    grid-column: 1; 
+    grid-row: 1;
+    align-self: end;
+    justify-self: center;
 
 }
+
 .shownLightbox img {
     width: 50%;
     grid-column: 1/span2;
@@ -33,50 +51,91 @@
     animation-delay: 0.6s;
 }
 
-.hiddenLightbox{   
-    border: none;
+.shownLightbox button{
+    visibility: visible;
 }
 
-.hideText{
+.hiddenLightbox button{
     visibility: hidden;
 }
-.showText{
-    font-size: 40px;
+.shownLightbox p {
     visibility: visible;
-    align-self: start;
-}
-.back{
-    grid-column: 1;
-    align-self: end;
     justify-self: end;
-    grid-row: 2;
+    align-self: center;
+}
+
+.hiddenLightbox p{
+    visibility: hidden;
+}
+
+button {
+    display: inline-block;
+    font-family: 'Fit-Variable';
+    /* letter-spacing: 1rem; */
+    font-size: 3.5rem;
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: none;
+    color: #323232;
+    cursor: pointer;
+    text-align: center;
+
+
+}
+
+
+  button.next:hover,
+  button .next:focus {
+    font-variation-settings: "wght" 900, "wdth" 200;
+}
+
+button.back:hover,
+button .back:focus {
+  font-variation-settings: "wght" 900, "wdth" 200;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+
+
+
+/* .hideText{
+    visibility: hidden;
+} */
+
+.close {
+    grid-column: 5;
+    align-self: center;
+    justify-self: start;
+   
 }
 .next{
     grid-column: 5;
     grid-row: 2;
     align-self: end;
+    justify-self: start;
+    font-variation-settings: "wght" 100, "wdth" 100;
+    transition:  font-variation-settings 0.2s;
 }
-
-.showCount{
-
-    visibility: visible;
-    align-self: center;
-    justify-self: end;
+.back{
+    grid-row: 2;
     grid-column: 1;
-    grid-row: 1;
+    align-self: end;
+    justify-self: end;
+    font-variation-settings: "wght" 100, "wdth" 100;
+    transition:  font-variation-settings 0.2s;
 }
 
-.showClose{
-
-    visibility: visible;
-    align-self: center;
-    grid-column: 5;
-    grid-row: 1;
-    justify-self: start; 
 
 
-    
-}
 
 .hideControls{
     visibility: hidden;
