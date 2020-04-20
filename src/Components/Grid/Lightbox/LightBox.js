@@ -3,11 +3,11 @@ import './LightBox.css';
 import Prismic from 'prismic-javascript'
 import { client } from '../../../client'
 
-function LightBox({image, setter}) {
+function LightBox({image, setter, gallerySetter, galleryStatus}) {
     console.log('running')
 
     const [urls, setImageurls] = React.useState([])
-    const [galleryStatus, setGallery] = React.useState('openLightBox')
+    // const [galleryStatus, setGallery] = React.useState('openLightBox')
 
     const [current, setCurrentposition] = React.useState(1)
     const [currentImageUrl, setCurrentImageUrl] = React.useState(0)
@@ -30,8 +30,11 @@ function LightBox({image, setter}) {
 
 
     function handleClose(){
-      setGallery('closeLightBox')
+
+      gallerySetter('closeLightBox')
+      
       setTimeout(() => {
+        
         setter(false)
       }, 1000)
     }

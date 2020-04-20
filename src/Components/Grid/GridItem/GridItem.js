@@ -19,7 +19,7 @@ function GridItem({image}) {
   return (
     <div className="GridItem">
       { image ? <img src={image.image.url} onClick={handleClick} className='titleCover'/> :  null }
-      { lightBoxstatus ? <Lightbox image={image.image.alt} setter={setLightBoxStatus}/>: null }
+      { lightBoxstatus ? <Lightbox image={image.image.alt} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus}/>: null }
     </div>
   );
 }
