@@ -29,14 +29,14 @@
 
 .openLightBox {
     animation: openAnimation ease 1s; 
-    animation-iteration-count: 1; 
-    animation-fill-mode: both;
+    
+    animation-fill-mode: forwards;
 }
 
 .closeLightBox{
-    animation: CloseAnimation ease-out 0.5s; 
-    animation-iteration-count: 1; 
-    animation-fill-mode: both;
+    animation: CloseAnimation ease-out 1s; 
+    
+    animation-fill-mode: forwards;
 }
 
 .lightbox p {
@@ -164,10 +164,13 @@ button:active {
 
 @keyframes CloseAnimation{ 
     0% { 
-        width: 100vw;
+        width: 100vw; opacity:100%;
     } 
+    30% { 
+        opacity: 0; 
+    }
     100% {     
-        width: 0;    
+        width: 0; opacity: 0; 
     } 
 } 
 
@@ -175,6 +178,7 @@ button:active {
     0% { 
         opacity: 0; 
     }
+    
     100% { 
         opacity: 100%; 
     } 
