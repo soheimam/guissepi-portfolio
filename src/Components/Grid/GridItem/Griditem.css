@@ -13,7 +13,7 @@
     width: 100%;
 }
 
-.GridItem:nth-child(even){
+.GridItem:nth-child(2){
     grid-column: 4/span 2;
     grid-row: 2;
     align-self: center;

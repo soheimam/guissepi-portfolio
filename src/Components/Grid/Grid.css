@@ -3,25 +3,21 @@
     width: 100vw;
     height: 100vh;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: minmax(0, 1fr);
     grid-gap: 20px;
     
 }
 
 .Logo{
-    width: 25rem;
-    grid-column: 1/span 3;
-    grid-row: 2;
-    align-self: center;
-    justify-self: end;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 80%;
 }
 
-.Logo:nth-child(even){
 
-    grid-column: 6/span 3;
-    grid-row: 2;
-    align-self: center;
-    justify-self: start;
-}
 /* width: 18rem;
 height: 18rem; */
