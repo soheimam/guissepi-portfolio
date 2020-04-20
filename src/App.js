@@ -15,7 +15,7 @@ function App() {
       const response = await client.query(
         Prismic.Predicates.at("document.tags", ['home'])
       )
-      console.log(response.results[0].data)
+      
       if (response) {
         setDocData(response.results[0].data)
       }

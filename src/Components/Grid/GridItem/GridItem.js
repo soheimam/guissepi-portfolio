@@ -1,31 +1,25 @@
 import React, { useState } from "react";
+import  '../Lightbox/LightBox.css';
 import './Griditem.css';
-import Lightbox from "../Lightbox/LightBox.js";
-import  "../Lightbox/LightBox.css";
+import Lightbox from '../Lightbox/LightBox.js'
+
+
 
 function GridItem({image}) {
 
   const [lightBoxstatus, setLightBoxStatus] = useState(false);
+  const [galleryStatus, setGallery] = React.useState('closeLightBox')
 
 
   function handleClick(){
-
     setLightBoxStatus(!lightBoxstatus)
-        
+    setGallery('openLightBox')
   }
- 
 
   return (
     <div className="GridItem">
-
-     { image? <img src={image.image.url} onClick={handleClick}/> : null}
-
-     {/* {image.map(images => <image src={images.image.url}/>)} */}
-      {/* <Lightbox image={image.image}  /> */}
-
-      {lightBoxstatus?<Lightbox image={image.image} className={lightBoxstatus? "shownLightbox": "hiddenLightbox"} />: console.log('running false') }
-
-      
+      { image ? <img src={image.image.url} onClick={handleClick} className='titleCover'/> :  null }
+      { lightBoxstatus ? <Lightbox image={image.image.alt} setter={setLightBoxStatus} galleryStatus={galleryStatus} />: null }
     </div>
   );
 }

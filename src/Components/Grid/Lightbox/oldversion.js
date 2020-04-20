@@ -3,69 +3,71 @@ import './LightBox.css';
 import Prismic from 'prismic-javascript'
 import { client } from '../../../client'
 
-function LightBox({image, setter}) {
-    console.log('running')
+function LightBox({image}) {
+    const [imageStatus, setImageStatus] = useState(false);
 
+    const [amount, setAmount] = React.useState(1)
     const [urls, setImageurls] = React.useState([])
-    const [galleryStatus, setGallery] = React.useState('openLightBox')
-
     const [current, setCurrentposition] = React.useState(1)
-    const [currentImageUrl, setCurrentImageUrl] = React.useState(0)
+    const [currentImageUrl, setCurrentImageUrl] = React.useState(image.url)
 
-    	
-      React.useEffect(() => {
+    const alt = image.alt ? image.alt : 'foo'
+ 
+
+    
+    
+    function handleClick(){
+        setImageStatus(!imageStatus)
         const fetchData = async () => {
           const response = await client.query(
-            Prismic.Predicates.at("document.tags", [image])
+            Prismic.Predicates.at("document.tags", [alt])
           )
           if (response) {
-           
+
             const allUrls = response.results[0] ? response.results[0].data.images.map(image => image.image.url): []
+            allUrls.push(currentImageUrl)
             setImageurls(allUrls)
-            setCurrentImageUrl(allUrls[0])
+            setAmount(response.results[0] ? response.results[0].data.images.length: 1)
           }
         }
         fetchData()
-      }, [])
-
+    }
 
     function handleClose(){
-      setGallery('closeLightBox')
-      setter(false)
+      setImageStatus(!imageStatus)
     }
+
     function handleNext(){
 
       let indexCurrent = urls.indexOf(currentImageUrl)
-      setCurrentImageUrl(urls[indexCurrent + 1])
-      setCurrentposition(current + 1)
 
+     
+      setCurrentImageUrl(urls[indexCurrent + 1])
+      
+      setCurrentposition(current + 1)
+    
       if (indexCurrent === urls.length -1)
       {
         setCurrentImageUrl(urls[0])
         setCurrentposition(1)
       }
+       
+        
+  
     }
 
     function handleBack(){
-      let indexCurrent = urls.indexOf(currentImageUrl)
-      console.log(indexCurrent)
-      setCurrentImageUrl(urls[indexCurrent - 1])
       setCurrentposition(current - 1)
-      if (indexCurrent === 0)
-      {
-        setCurrentImageUrl(urls[urls.length - 1])
-        setCurrentposition(urls.length )
-      }
+      
     }
 
     if (image) {
       return (
-        
-        <div className={`lightbox ${galleryStatus}`}>
+        <div className="shownLightbox">
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
-            <img src={currentImageUrl}  className='lightImage'/> 
-            <p> {current}/{urls.length}</p>
+            <img src={currentImageUrl} onClick={handleClick}/> 
+            <p> {current}/{amount} </p>
             <button onClick={handleClose} className='close'> close </button>
         </div>
     );
