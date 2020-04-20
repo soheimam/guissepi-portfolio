@@ -31,7 +31,9 @@ function LightBox({image, setter}) {
 
     function handleClose(){
       setGallery('closeLightBox')
-      setter(false)
+      setTimeout(() => {
+        setter(false)
+      }, 1000)
     }
     function handleNext(){
 
