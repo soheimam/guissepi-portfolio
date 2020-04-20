@@ -36,7 +36,7 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
       setTimeout(() => {
         
         setter(false)
-      }, 1000)
+      }, 500)
     }
     function handleNext(){
 

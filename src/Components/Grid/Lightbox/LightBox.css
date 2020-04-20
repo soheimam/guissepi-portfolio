@@ -164,10 +164,10 @@ button:active {
 
 @keyframes CloseAnimation{ 
     0% { 
-        width: 100vw; opacity:100%;
+        width: 100vw; opacity:1;
     } 
     30% { 
-        opacity: 0; 
+        opacity: 0; width: 30vw;
     }
     100% {     
         width: 0; opacity: 0; 
