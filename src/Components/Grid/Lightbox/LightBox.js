@@ -33,7 +33,7 @@ function LightBox({image, setter}) {
       setGallery('closeLightBox')
       setTimeout(() => {
         setter(false)
-      }, 300)
+      }, 1000)
     }
     function handleNext(){
 
