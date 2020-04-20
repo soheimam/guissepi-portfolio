@@ -10,7 +10,7 @@ function Grid(doc) {
   return (
     <div className="Grid">
         <img src={logo} className="Logo"/>
-        {images.map(image => <GridItem image={image}/>)}
+        {images.map((image, key) => <GridItem image={image} key={key}/>)}
     </div>
   );
 }

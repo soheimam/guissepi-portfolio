@@ -5,7 +5,7 @@ import Lightbox from '../Lightbox/LightBox.js'
 
 
 
-function GridItem({image}) {
+function GridItem({image, key}) {
 
   const [lightBoxstatus, setLightBoxStatus] = useState(false);
   const [galleryStatus, setGallery] = React.useState('closeLightBox')
