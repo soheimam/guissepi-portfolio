@@ -37,8 +37,8 @@
 .closeLightBox {
    
     
-    animation: CloseAnimation ease 1s; 
-    animation-iteration-count: 1; 
+    animation: CloseAnimation ease 0.5s; 
+    animation-iteration-count: 0.5; 
     animation-fill-mode: both;
 }
 
