@@ -69,7 +69,7 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
         <div className={`lightbox ${galleryStatus}`}>
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
-            <img src={currentImageUrl}  className='lightImage'/> 
+            <img src={currentImageUrl}  className='lightImage' loading="lazy"/> 
             <p> {current}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
         </div>
