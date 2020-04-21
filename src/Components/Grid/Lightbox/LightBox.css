@@ -197,7 +197,7 @@ button:active {
         font-size: .8em;
     }
     .lightImage {
-        max-height: calc( 100vh - 30rem);
+        max-width: calc( 100vh - 20rem);
     }
 
     .back{
