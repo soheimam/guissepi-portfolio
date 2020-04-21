@@ -11,10 +11,9 @@
 .lightbox{
     display: grid;
     font-family: 'Fit-Variable';
-    font-size: 3.5rem;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    background-color: rgb(255, 235, 181, 0.8);
+    grid-template-columns: 1fr max-content 1fr;
+    background-color: rgb(57, 59, 58, 0.8);
+    color:#ffffff;
     align-items: center;
     position: fixed;
     top: 0;
@@ -22,9 +21,9 @@
     width: 100%;
     height: 100%;
     z-index: 20;
-    justify-content: center; 
-  
-   
+    align-content: center;
+    justify-content: center;
+    justify-content: center;
 }
 
 .openLightBox {
@@ -40,17 +39,20 @@
 }
 
 .lightbox p {
-    grid-column: 1; 
+    grid-column: 1;
     grid-row: 1;
-    align-self: center;
-    justify-self: end;
-
+    align-self: baseline;
+    margin-right: 1em;
+    justify-self: flex-end;
+    font-size: 2em;
 }
 
+
+
 .lightImage {
-    width: 50%;
-    grid-column: 1/span2;
-    grid-row: 2/span 2;
+    max-height: calc( 100vh - 40px);
+    grid-column: 2;
+    /* grid-row: 2/span 2; */
     align-self: center;
     justify-self: center;
     /* animation: fadeInImage ease 1s; 
@@ -80,15 +82,15 @@
 button {
     display: inline-block;
     font-family: 'Fit-Variable';
-    /* letter-spacing: 1rem; */
-    font-size: 3.5rem;
     border: none;
     margin: 0;
     text-decoration: none;
     background: none;
-    color: #323232;
+    color:#ffffff;
     cursor: pointer;
     text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
 
 
 }
@@ -121,24 +123,25 @@ button:active {
 } */
 
 .close {
-    grid-column: 5;
-    align-self: center;
-    justify-self: start;
+    grid-column: 3;
+    align-self: baseline;
+    grid-row: 1;
+    
    
 }
 .next{
-    grid-column: 5;
-    grid-row: 2;
-    align-self: end;
-    justify-self: start;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
     font-variation-settings: "wght" 100, "wdth" 100;
     transition:  font-variation-settings 0.2s;
 }
 .back{
-    grid-row: 2;
     grid-column: 1;
-    align-self: end;
-    justify-self: end;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
     font-variation-settings: "wght" 100, "wdth" 100;
     transition:  font-variation-settings 0.2s;
 }
@@ -184,3 +187,15 @@ button:active {
     } 
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+    .button{
+        font-size: .8em;
+    }
+    .lightImage {
+        max-height: calc( 100vh - 240px);
+    }
+}
