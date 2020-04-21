@@ -11,6 +11,7 @@
 .lightbox{
     display: grid;
     font-family: 'Fit-Variable';
+    grid-gap: 1rem;
     grid-template-columns: 1fr max-content 1fr;
     background-color: rgb(57, 59, 58, 0.8);
     color:#ffffff;
@@ -98,12 +99,12 @@ button {
 
   button.next:hover,
   button .next:focus {
-    font-variation-settings: "wght" 900, "wdth" 200;
+    font-variation-settings: "wght" 900, "wdth" 130;
 }
 
 button.back:hover,
 button .back:focus {
-  font-variation-settings: "wght" 900, "wdth" 200;
+  font-variation-settings: "wght" 900, "wdth" 130;
 }
 
 button:focus {
@@ -196,6 +197,33 @@ button:active {
         font-size: .8em;
     }
     .lightImage {
-        max-height: calc( 100vh - 240px);
+        max-height: calc( 100vh - 30rem);
+    }
+
+    .back{
+      
+        grid-column: 2;
+        grid-row: 4;
+        align-self: center;
+        justify-self: center;
+    }
+    .next{
+        grid-column: 2;
+        grid-row: 3;
+        align-self: center;
+        justify-self: center;
+    }
+    .close {
+        grid-column: 2;
+        align-self: baseline;
+        grid-row: 1;
+        align-self: center;
+        justify-self: end;
+    }
+    .lightbox p {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        justify-self: start;
     }
 }
