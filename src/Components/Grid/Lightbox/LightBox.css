@@ -12,7 +12,8 @@
     display: grid;
     font-family: 'Fit-Variable';
     grid-gap: 1rem;
-    grid-template-columns: 1fr minmax(400px, max-content) 1fr;
+    grid-template-columns: 1fr minmax(800px, max-content) 1fr;
+    grid-template-rows: 50vw 50vw;
     background-color: rgb(57, 59, 58, 0.8);
     color:#ffffff;
     align-items: center;
@@ -48,14 +49,19 @@
     font-size: 2em;
 }
 
-
-
-.lightImage {
-    max-height: calc( 100vh - 40px);
+.lightimage {
     grid-column: 2;
     /* grid-row: 2/span 2; */
     align-self: center;
     justify-self: center;
+  
+
+
+}
+
+.lightImage img {
+    max-height: calc( 100vh - 40px);
+   
     /* animation: fadeInImage ease 1s; 
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
@@ -132,23 +138,22 @@ button:active {
 
 .close {
     grid-column: 3;
-    align-self: baseline;
     grid-row: 1;
     
    
 }
 .next{
     grid-column: 3;
-    grid-row: 1;
-    align-self: center;
+    grid-row: 2;
+    align-self: start;
     justify-self: center;
     font-variation-settings: "wght" 100, "wdth" 100;
     transition:  font-variation-settings 0.2s;
 }
 .back{
     grid-column: 1;
-    grid-row: 1;
-    align-self: center;
+    grid-row: 2;
+    align-self: start;
     justify-self: center;
     font-variation-settings: "wght" 100, "wdth" 100;
     transition:  font-variation-settings 0.2s;

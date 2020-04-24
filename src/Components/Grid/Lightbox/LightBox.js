@@ -2,18 +2,33 @@ import React, { useState } from "react";
 import './LightBox.css';
 import Prismic from 'prismic-javascript'
 import { client } from '../../../client'
-import { CSSTransition,TransitionGroup } from 'react-transition-group';
+import { useTransition, animated } from 'react-spring';
 
 
 function LightBox({image, setter, gallerySetter, galleryStatus}) {
-    console.log('running')
+    
 
     const [urls, setImageurls] = React.useState([])
-    // const [galleryStatus, setGallery] = React.useState('openLightBox')
+
+   
 
     const [current, setCurrentposition] = React.useState(1)
     const [currentImageUrl, setCurrentImageUrl] = React.useState(0)
 
+
+    const transitions = useTransition([currentImageUrl], item => item, {
+      from: {
+        opacity: 0.1,
+        position:'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%,-50%)'
+
+      
+      },
+      enter: { opacity: 1},
+      leave: { opacity: 0.5}
+    });
     	
       React.useEffect(() => {
         const fetchData = async () => {
@@ -74,8 +89,11 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
             
-            <img src={currentImageUrl}  className='lightImage' loading="lazy"/> 
-       
+            {transitions.map(({props, key }) => (   
+              <animated.div key={key} style={props} className='lightImage'>      
+            <img src={currentImageUrl} loading="lazy"/> 
+            </animated.div>    
+            ))}
            
             <p> {current}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
