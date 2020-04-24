@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './LightBox.css';
 import Prismic from 'prismic-javascript'
 import { client } from '../../../client'
+import { CSSTransition,TransitionGroup } from 'react-transition-group';
+
 
 function LightBox({image, setter, gallerySetter, galleryStatus}) {
     console.log('running')
@@ -67,11 +69,17 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
       return (
         
         <div className={`lightbox ${galleryStatus}`}>
+       
+                 
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
+            
             <img src={currentImageUrl}  className='lightImage' loading="lazy"/> 
+       
+           
             <p> {current}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
+       
         </div>
     );
     }

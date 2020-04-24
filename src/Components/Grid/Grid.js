@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Grid.css';
 import logo from './logo.svg';
 import GridItem from './GridItem/GridItem';
 
 
-
 function Grid(doc) {
   const images = doc.doc.images ? doc.doc.images : []
-
- 
 
   return (
     
