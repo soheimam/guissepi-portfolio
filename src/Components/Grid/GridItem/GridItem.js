@@ -6,10 +6,12 @@ import Jello from 'react-reveal/Jello';
 
 
 
-function GridItem({image, key}) {
+function GridItem({image}) {
 
   const [lightBoxstatus, setLightBoxStatus] = useState(false);
   const [galleryStatus, setGallery] = React.useState('closeLightBox')
+
+ console.log(image.image.alt)
 
 
   function handleClick(){

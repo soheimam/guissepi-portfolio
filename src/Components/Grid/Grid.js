@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import './Grid.css';
-import logo from './logo.svg';
 import GridItem from './GridItem/GridItem';
+import {PrismicContext} from '../../Contexts/PrismicContext'
 
 
-function Grid(doc) {
-  const images = doc.doc.images ? doc.doc.images : []
+import {logo} from './logo.svg'
+
+
+function Grid() {
+  // const images = doc.doc.images ? doc.doc.images : []
+  const { doc } = useContext(PrismicContext);
+  const images = doc.images ? doc.images : []
 
   return (
     
     <div className="Grid">
 
-        <img src={logo} className="Logo"/>
+      <img src={logo}/>
      
-        {images.map((image, key) => <GridItem image={image} key={key} loading="lazy"/>)}
+        {images.map((image, key) =><GridItem image={image} key={key} doc={doc}loading="lazy"/>)}
         
     </div>
   );
