@@ -12,7 +12,7 @@ function GridItem({image}) {
 
   React.useEffect(() => {
     fetchData(image.image.alt, setImages)
-  })
+  }, [])
 
     //   const fetchData = async () => {
     //     const response = await client.query(
@@ -32,13 +32,11 @@ function GridItem({image}) {
     setLightBoxStatus(!lightBoxstatus)
     setGallery('openLightBox')
   }
-
   return (
     <div className="GridItem">
-      { image ? <img src={image.image.url} onClick={handleClick} className='titleCover' loading="lazy"/> :  null }
-      { lightBoxstatus ? <Lightbox images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus}/>: null }
+      { image ? <img src={image.image.url} onClick={handleClick} className='titleCover' alt='' loading="lazy"/> :  null }
+      { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null }
     </div>
-   
   );
 }
 

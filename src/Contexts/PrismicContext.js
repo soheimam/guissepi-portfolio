@@ -1,5 +1,5 @@
 
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import fetchData from '../Helpers/fetch'
 
 export const PrismicContext = createContext();
@@ -9,7 +9,7 @@ const PrismicProvider = (props) => {
  
   React.useEffect(() => {
     fetchData('home', setDocData)
-  })
+  }, [])
   
   return (
     <PrismicContext.Provider value={{doc}}>

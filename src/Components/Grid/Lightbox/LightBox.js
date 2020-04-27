@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { Suspense } from "react";
 import './LightBox.css';
 // import Prismic from 'prismic-javascript'
 // import { client } from '../../../client'
 // import {useSpring, animated} from 'react-spring'
 
 
-function LightBox({images, setter, gallerySetter, galleryStatus}) {
+function LightBox({initImage, images, setter, gallerySetter, galleryStatus}) {
 
-    const urls = images.images.map(image => image.image.url)
+    const urls = []
+    urls.unshift(initImage)
+    images.images.map(image => urls.push(image.image.url))
     // const props = useSpring({opacity: 1, from: {opacity: 0}})
 
     const [currentImagePosition, setCurrentImagePosition] = React.useState(1)
@@ -44,21 +46,17 @@ function LightBox({images, setter, gallerySetter, galleryStatus}) {
       }
     }
 
+
     if (images) {
       return (
-        
-        <div className={`lightbox ${galleryStatus}`}>
-       
-                 
+        <div className={`lightbox ${galleryStatus}`}>  
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
-            
-            <img src={currentImageUrl}  className='lightImage' loading="lazy"/> 
-       
-           
+            <Suspense fallback={<h1>Loading image...</h1>}>
+            <img src={currentImageUrl} alt='' className='lightImage' loading="lazy"/>
+            </Suspense> 
             <p> {currentImagePosition}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
-       
         </div>
     );
     }

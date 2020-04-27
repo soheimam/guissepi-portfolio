@@ -22,22 +22,7 @@ const PrismicProvider = (props) => {
     fetchData()
   
 
-  });
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const response = await client.query(
-        Prismic.Predicates.at("document.tags", [image])
-      )
-      if (response) {
-       
-        const allUrls = response.results[0] ? response.results[0].data.images.map(image => image.image.url): []
-        setImageurls(allUrls)
-        setCurrentImageUrl(allUrls[0])
-      }
-    }
-    fetchData()
-  }, [])
+  }, []);
 
 
   return (

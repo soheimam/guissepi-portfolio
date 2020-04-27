@@ -14,7 +14,7 @@ function Grid() {
 
   return (
     <div className="Grid">
-      <img src={logo}/>
+      <img src={logo} alt=''/>
         {images.map((image, key) =><GridItem image={image} key={key} loading="lazy"/>)}
     </div>
   );
