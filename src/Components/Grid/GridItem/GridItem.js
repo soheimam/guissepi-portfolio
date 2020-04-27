@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Suspense  } from "react";
 import  '../Lightbox/LightBox.css';
 import './Griditem.css';
-import Lightbox from '../Lightbox/LightBox.js'
+import Spinner from '../../Spinner/Spinner'
 import fetchData from '../../../Helpers/fetch'
-
+const Lightbox = React.lazy(() => import('../Lightbox/LightBox.js'));
 
 function GridItem({image}) {
   const [images, setImages] = useState([]);
@@ -35,7 +35,9 @@ function GridItem({image}) {
   return (
     <div className="GridItem">
       { image ? <img src={image.image.url} onClick={handleClick} className='titleCover' alt='' loading="lazy"/> :  null }
-      { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null }
+      <Suspense fallback={<Spinner />}>
+          { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null }
+      </Suspense> 
     </div>
   );
 }

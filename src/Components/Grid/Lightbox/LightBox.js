@@ -1,5 +1,6 @@
-import React, { Suspense } from "react";
+import React from "react";
 import './LightBox.css';
+
 // import Prismic from 'prismic-javascript'
 // import { client } from '../../../client'
 // import {useSpring, animated} from 'react-spring'
@@ -52,9 +53,7 @@ function LightBox({initImage, images, setter, gallerySetter, galleryStatus}) {
         <div className={`lightbox ${galleryStatus}`}>  
             <button onClick={handleNext} className='next'> Next </button>
             <button onClick={handleBack} className='back'> Back </button>
-            <Suspense fallback={<h1>Loading image...</h1>}>
             <img src={currentImageUrl} alt='' className='lightImage' loading="lazy"/>
-            </Suspense> 
             <p> {currentImagePosition}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
         </div>
