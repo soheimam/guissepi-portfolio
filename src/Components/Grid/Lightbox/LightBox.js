@@ -1,53 +1,34 @@
 import React, { useState } from "react";
 import './LightBox.css';
-import Prismic from 'prismic-javascript'
-import { client } from '../../../client'
-import {useSpring, animated} from 'react-spring'
+// import Prismic from 'prismic-javascript'
+// import { client } from '../../../client'
+// import {useSpring, animated} from 'react-spring'
 
 
-function LightBox({image, setter, gallerySetter, galleryStatus}) {
-   
-    const [urls, setImageurls] = React.useState([])
-    const props = useSpring({opacity: 1, from: {opacity: 0}})
-    const [current, setCurrentposition] = React.useState(1)
-    const [currentImageUrl, setCurrentImageUrl] = React.useState(0)
+function LightBox({images, setter, gallerySetter, galleryStatus}) {
 
-    	
-      React.useEffect(() => {
-        const fetchData = async () => {
-          const response = await client.query(
-            Prismic.Predicates.at("document.tags", [image])
-          )
-          if (response) {
-           
-            const allUrls = response.results[0] ? response.results[0].data.images.map(image => image.image.url): []
-            setImageurls(allUrls)
-            setCurrentImageUrl(allUrls[0])
-          }
-        }
-        fetchData()
-      }, [])
+    const urls = images.images.map(image => image.image.url)
+    // const props = useSpring({opacity: 1, from: {opacity: 0}})
+
+    const [currentImagePosition, setCurrentImagePosition] = React.useState(1)
+    const [currentImageUrl, setCurrentImageUrl] = React.useState(urls[0])
 
 
     function handleClose(){
-
       gallerySetter('closeLightBox')
-      
       setTimeout(() => {
-        
         setter(false)
       }, 500)
     }
-    function handleNext(){
 
+    function handleNext(){
       let indexCurrent = urls.indexOf(currentImageUrl)
       setCurrentImageUrl(urls[indexCurrent + 1])
-      setCurrentposition(current + 1)
-
+      setCurrentImagePosition(currentImagePosition + 1)
       if (indexCurrent === urls.length -1)
       {
         setCurrentImageUrl(urls[0])
-        setCurrentposition(1)
+        setCurrentImagePosition(1)
       }
     }
 
@@ -55,15 +36,15 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
       let indexCurrent = urls.indexOf(currentImageUrl)
       console.log(indexCurrent)
       setCurrentImageUrl(urls[indexCurrent - 1])
-      setCurrentposition(current - 1)
+      setCurrentImagePosition(currentImagePosition - 1)
       if (indexCurrent === 0)
       {
         setCurrentImageUrl(urls[urls.length - 1])
-        setCurrentposition(urls.length )
+        setCurrentImagePosition(urls.length )
       }
     }
 
-    if (image) {
+    if (images) {
       return (
         
         <div className={`lightbox ${galleryStatus}`}>
@@ -75,7 +56,7 @@ function LightBox({image, setter, gallerySetter, galleryStatus}) {
             <img src={currentImageUrl}  className='lightImage' loading="lazy"/> 
        
            
-            <p> {current}/{urls.length}</p>
+            <p> {currentImagePosition}/{urls.length}</p>
             <button onClick={handleClose} className='close'> close </button>
        
         </div>

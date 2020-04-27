@@ -8,13 +8,11 @@ import PrismicContextProvider from './Contexts/PrismicContext';
 function App() {
 
   return (
-    <main className="App">
-
-      <PrismicContextProvider>
-      <Grid />
-      </PrismicContextProvider>
-     
-    </main>
+    <PrismicContextProvider>
+      <main className="App">
+        <Grid />
+      </main>
+    </PrismicContextProvider>
   );
 }
 

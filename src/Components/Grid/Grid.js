@@ -13,13 +13,9 @@ function Grid() {
   const images = doc.images ? doc.images : []
 
   return (
-    
     <div className="Grid">
-
       <img src={logo}/>
-     
-        {images.map((image, key) =><GridItem image={image} key={key} doc={doc}loading="lazy"/>)}
-        
+        {images.map((image, key) =><GridItem image={image} key={key} loading="lazy"/>)}
     </div>
   );
 }
