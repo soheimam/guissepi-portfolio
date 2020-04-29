@@ -19,8 +19,8 @@ function Grid() {
   // const block = useRef(null);
   
   if (images){
-    TweenMax.to(['#logo'],  1, {top:"50%" });
-    TweenMax.to(['#logo'],  1, {top:"0%"});
+    TweenMax.to(['#logo'],  2, {top:"50%" });
+    TweenMax.to(['#logo'],  2, {top:"3%"});
 
     // for (let index = 0; index < images.length; index++) {
      
@@ -37,7 +37,7 @@ function Grid() {
           setIsLoading(false)
           setIsVisable('on')
       }
-    }, 1200);
+    }, 1900);
   })
 
 
