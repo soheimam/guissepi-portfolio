@@ -1,6 +1,7 @@
 import React from "react";
 import './LightBox.css';
 
+import eye from './eye.svg'
 // import Prismic from 'prismic-javascript'
 // import { client } from '../../../client'
 // import {useSpring, animated} from 'react-spring'
@@ -55,7 +56,9 @@ function LightBox({initImage, images, setter, gallerySetter, galleryStatus}) {
             <button onClick={handleBack} className='back'> Back </button>
             <img src={currentImageUrl} alt='' className='lightImage' loading="lazy"/>
             <p> {currentImagePosition}/{urls.length}</p>
+            <div className='eye'> <img src={eye} alt='eye'/></div>
             <button onClick={handleClose} className='close'> close </button>
+            
         </div>
     );
     }

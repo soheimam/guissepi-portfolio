@@ -3,7 +3,12 @@ import  '../Lightbox/LightBox.css';
 import './Griditem.css';
 import Spinner from '../../Spinner/Spinner'
 import fetchData from '../../../Helpers/fetch'
+
+
+
 const Lightbox = React.lazy(() => import('../Lightbox/LightBox.js'));
+
+
 
 function GridItem({image, imageId, isVisable,key}) {
   const [images, setImages] = useState([]);
@@ -18,15 +23,19 @@ function GridItem({image, imageId, isVisable,key}) {
     setLightBoxStatus(!lightBoxstatus)
     setGallery('openLightBox')
   }
+
   return (
     <div className="GridItem">
  
-    {/* var style = {"--animation-order": key } as React.CSSProperties; */}
 
-      { image ? <img id={imageId} src={image.image.url} onClick={handleClick} className={`titleCover ${isVisable}`} alt='' style={{"--animation-order": key}} loading="lazy"/> :  null }
+    <h1 className='ProjectTitle'> {image.image.alt}</h1>
+     
+      { image ? <img src={image.image.url} onClick={handleClick} className={`titleCover ${isVisable}`} alt=''  data-attr={imageId} style={{"--animation-order": `${imageId.toString()}`}} loading="lazy"/> :  null }
       <Suspense fallback={<Spinner />}>
           { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null }
       </Suspense> 
+      
+  
     </div>
   );
 }

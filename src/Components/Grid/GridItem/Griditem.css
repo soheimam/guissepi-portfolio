@@ -1,17 +1,44 @@
 
 .GridItem{
-    width: 28rem;
-    height: 28rem;
-    object-fit: contain;
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    justify-self: center;
-    margin: 5px;
-   
+
+  object-fit: contain;
+  align-self: flex-start;
+  margin-bottom: 5rem;
+  display: flex;
+  align-content: inherit;
+  justify-content: space-between;
+  position: relative;
+    
+}
+.ProjectTitle{
+  font-size: 2.2em;
+  align-self: center;
+  z-index: 2;
+  color: #D64B47;
+  margin-left: -5rem;
+  flex-shrink: 0;
+  max-width: 22rem;
+}
+
+h1:nth-of-type(even) {
+  /* margin-right: -5rem;
+  margin-left: 0; */
+  /* color:black; */
+  
+}
+
+.GridItem:nth-child(even) {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+
  
 }
 
+.GridItem:nth-child(even) h1 {
+  color:black;
+
+ 
+}
 
 .titleCover{
     width: 100%;
@@ -25,23 +52,26 @@
 .on{
 
 opacity: 1;   
-animation-name: fadein;
-
+animation-name: animateIn;
 animation-duration: 350ms;
 animation-delay: calc(var(--animation-order) * 100ms);
 animation-fill-mode: both;
 animation-timing-function: ease-in-out;
 }
 
-@keyframes fadein {
-    0% {
-        opacity: 0;
-        transform: scale(0.6) translateY(-8px);
-      }
-      
-      100% {
-        opacity: 1;
-      }
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(10px);
+  
+  }
+  
+  100% {
+    opacity: 1;
+    
+
+  }
 }
 
 @media only screen 
@@ -51,7 +81,7 @@ animation-timing-function: ease-in-out;
 
   
 .GridItem {
-    width: 18rem;
-    height: 18rem
+    width: 22rem;
+    height: 22rem
 }
 }

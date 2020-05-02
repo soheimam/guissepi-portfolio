@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'SergioTrendy-Regular';
+	src: url('./fonts/sergio-trendy-regular.eot');
+	src: url('./fonts/sergio-trendy-regular.eot?#iefix') format('embedded-opentype'),
+             url('./fonts/sergio-trendy-regular.woff2') format('woff2'),
+	     url('./fonts/sergio-trendy-regular.woff') format('woff'),
+	     url('./fonts/sergio-trendy-regular.ttf') format('truetype'),
+	     url('./fonts/sergio-trendy-regular.svg#youworkforthem') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 .Grid{
     display: flex;
@@ -17,6 +29,10 @@
     width: 80%;
     padding-bottom: 2rem;
    
+}
+
+h1{
+   font-family: 'SergioTrendy-Regular';
 }
 
 

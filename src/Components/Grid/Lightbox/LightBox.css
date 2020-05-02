@@ -13,7 +13,7 @@
     font-family: 'Fit-Variable';
     grid-gap: 1rem;
     grid-template-columns: 1fr minmax(1vw, max-content) 1fr;
-    background-color: rgb(57, 59, 58, 0.8);
+    background-color: rgb(57, 59, 58, 1);
     color:#ffffff;
     align-items: center;
     position: fixed;
@@ -46,6 +46,7 @@
     margin-right: 1em;
     justify-self: flex-end;
     font-size: 2em;
+    margin-top: 1em;
 }
 
 
@@ -134,6 +135,7 @@ button:active {
     grid-column: 3;
     align-self: baseline;
     grid-row: 1;
+    margin-top: 1em;
     
    
 }
@@ -153,7 +155,21 @@ button:active {
     font-variation-settings: "wght" 100, "wdth" 100;
     transition:  font-variation-settings 0.2s;
 }
+.info{
+    grid-column: 2;
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+    font-variation-settings: "wght" 100, "wdth" 100;
+    transition:  font-variation-settings 0.2s;
+}
 
+.eye{
+    width: 1em;
+    grid-column: 3;
+    align-self: end;
+    justify-self: end;
+}
 
 
 
