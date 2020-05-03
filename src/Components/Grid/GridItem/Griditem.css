@@ -39,7 +39,7 @@ h1:nth-of-type(even) {
 }
 
 .GridItem:nth-child(even) h1 {
-  color:black;
+
   align-self: flex-start;
 
  
@@ -86,7 +86,7 @@ animation-timing-function: ease-in-out;
 
   
 .GridItem {
-  width: 24rem;
+  width: 22rem;
     
 }
 }
