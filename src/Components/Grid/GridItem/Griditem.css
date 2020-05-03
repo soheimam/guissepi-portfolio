@@ -1,24 +1,26 @@
 
 .GridItem{
 
-  object-fit: contain;
-  align-self: flex-start;
-  margin-bottom: 5rem;
+
   display: flex;
-  align-content: inherit;
-  justify-content: space-between;
-  position: relative;
-    
+  flex-direction: column-reverse;
+  object-fit: contain;
+  margin-bottom: 10rem;
+  align-self: flex-start;
+
 }
 .ProjectTitle{
   font-size: 2.2em;
-  align-self: center;
+  align-self: flex-end;
+  margin-top: -0.8em;
   z-index: 2;
   color: #D64B47;
-  margin-left: -5rem;
-  flex-shrink: 0;
-  max-width: 22rem;
+  text-transform: capitalize;
+  margin-left: -1em;
 }
+
+
+
 
 h1:nth-of-type(even) {
   /* margin-right: -5rem;
@@ -28,14 +30,17 @@ h1:nth-of-type(even) {
 }
 
 .GridItem:nth-child(even) {
-  flex-direction: row-reverse;
   align-self: flex-end;
+  margin-right: -1em;
+  /* flex-direction: row-reverse;
+  align-self: flex-end; */
 
  
 }
 
 .GridItem:nth-child(even) h1 {
   color:black;
+  align-self: flex-start;
 
  
 }
@@ -81,7 +86,7 @@ animation-timing-function: ease-in-out;
 
   
 .GridItem {
-    width: 22rem;
-    height: 22rem
+  width: 24rem;
+    
 }
 }
