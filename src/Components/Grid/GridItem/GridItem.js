@@ -1,5 +1,5 @@
 import React, { useState, Suspense, useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import {gsap, Power3} from 'gsap'; 
  
 import  '../Lightbox/LightBox.css';
 import './Griditem.css';
@@ -30,7 +30,7 @@ function GridItem({image, imageId, isVisable,key}) {
     const onScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight;
 
-      const tl = new gsap.timeline({ delay: .8});
+      const tl = new gsap.timeline();
       
       if (div1Pos < scrollPos) {
 
@@ -41,13 +41,15 @@ function GridItem({image, imageId, isVisable,key}) {
 
         // tl.from(gridImage.current, 1.2, {y: 1280, ease: 'Power3.easeOut'},'Start')
 
-        tl.to(gridImage.current, 0.8, { opacity: 1, scale:1,  ease:'Power3.easeOut', });
-        tl.to(gridImage.current, 0.2, { y:100, ease: "Power3.easeOut",stagger: 0.1,});
+        tl.to(gridImage.current, 0.8, { opacity: 1, y:100, scale:1, ease: Power3.easeOut, stagger: 0.1,},.2);
+        tl.to(gridText.current, 0.8, { opacity: 1, y:-50, stagger: 0.1, ease: Power3.easeOut});
+        // tl.to(gridImage.current, 1, { y:100, ease: "Power3.easeOut",});
       
         // tl.to(gridImage.current, 2, { y: 50 }, { y: 0 });
 
       }
-      
+
+       
     };
 
     window.addEventListener("scroll", onScroll);
@@ -77,7 +79,7 @@ function GridItem({image, imageId, isVisable,key}) {
      
       { image ? <img src={image.image.url} onClick={handleClick} className={`titleCover ${isVisable}`} ref={gridImage} alt='' loading="lazy"/> :  null }
       <Suspense fallback={<Spinner />}>
-          { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null }
+          {/* { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null } */}
       </Suspense> 
     
   
