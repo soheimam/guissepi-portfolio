@@ -10,7 +10,7 @@ import logo from './logo.svg'
 
 function Grid() {
   // const images = doc.doc.images ? doc.doc.images : []
-  console.log('running first')
+
   const [isLoading, setIsLoading] = useState(true);
   const [isVisable, setIsVisable] = useState('off');
   const { doc } = useContext(PrismicContext);
