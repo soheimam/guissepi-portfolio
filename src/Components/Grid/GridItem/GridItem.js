@@ -35,7 +35,7 @@ function GridItem({image, imageId, isVisable,key}) {
       if (div1Pos < scrollPos) {
 
         
-        doShow(state => ({ ...state, itemOne: true }));
+        // doShow(state => ({ ...state, itemOne: true }));
   
 
 

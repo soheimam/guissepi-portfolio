@@ -3,6 +3,8 @@ import './Grid.css';
 import GridItem from './GridItem/GridItem';
 import {PrismicContext} from '../../Contexts/PrismicContext';
 import { TweenMax } from "gsap";
+import Lottie from 'react-lottie';
+import animationData from './pageloadsmall.json'
 
 
 import logo from './logo.svg'
@@ -60,11 +62,25 @@ function Grid() {
 //       // {autoAlpha:1,immediateRender:false});
 
 //   },[]);
+      const defaultOptions = {
+        loop: false,
+        autoplay: true,
+        className:'Lottie',
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      }
 
 
       return (
         <div className="Grid">
+          <div className='Lottie'>
+        <Lottie options={defaultOptions} />
+        </div>
             <img src={logo} alt='logo' id='logo' className='Logo'/>
+         
+            
              {!isLoading ? images.map((image, key) =><GridItem image={image} isVisable={isVisable} imageId={key} loading="lazy"/>): null}
         </div>
       )

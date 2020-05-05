@@ -19,6 +19,16 @@
 
     
 }
+.Lottie {
+    /* background-color: #222; */
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    transform: translate3d(0, -50px, 0);
+    text-align: center;
+   
+}
 
 .Logo{
     position: absolute;
