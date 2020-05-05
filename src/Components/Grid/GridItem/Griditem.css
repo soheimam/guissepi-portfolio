@@ -9,6 +9,7 @@
   align-self: flex-start;
   position: relative;
   width: 42rem;
+  z-index: 55;
 
 
 }
