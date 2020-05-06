@@ -55,7 +55,7 @@ h1:nth-of-type(even) {
     width: 100%;
     /* position: absolute; */
     opacity: 0;
-    transform: scale(1.6);
+    /* transform: scale(1.6); */
   
    
 }

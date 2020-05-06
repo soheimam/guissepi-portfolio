@@ -63,7 +63,7 @@ function Grid() {
 
 //   },[]);
       const defaultOptions = {
-        loop: false,
+        loop: true,
         autoplay: true,
         className:'Lottie',
         animationData: animationData,
