@@ -53,7 +53,7 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
     <div className="GridItem">
 
     <h1 className='ProjectTitle'ref={gridText}> {image.image.alt}</h1>
-    <img src={image.image.url} href={image.image.alt} className="titleCover" ref={ref}  isIntersection={entry.isIntersecting ? isVisible() : null}  alt='' loading="lazy"/> 
+    <a href={image.image.alt}><img src={image.image.url} href={image.image.alt} className="titleCover" ref={ref}  isIntersection={entry.isIntersecting ? isVisible() : null}  alt='' loading="lazy"/> </a>
     
     </div>
   );
