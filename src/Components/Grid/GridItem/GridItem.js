@@ -5,11 +5,11 @@ import  '../Lightbox/LightBox.css';
 import './Griditem.css';
 import Spinner from '../../Spinner/Spinner';
 import fetchData from '../../../Helpers/fetch';
-import { useInView } from 'react-intersection-observer'
 
-import useObserver from '../../../Helpers/Hooks/useObserver'
+import useObserver from '../../../Helpers/Hooks/useObserver';
 
-const Lightbox = React.lazy(() => import('../Lightbox/LightBox.js'));
+const Lightbox = React.lazy(() => import('../Lightbox/Project.js'));
+
 
 function GridItem({image, imageId, isVisable,key}) {
   const [images, setImages] = useState([]);
@@ -21,8 +21,8 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 
   
   const [ref, entry] = useObserver({
-    threshold: 0.5,
-    rootMargin: '10px'
+    threshold: 0.7,
+    rootMargin: '0px'
 
   }); 
 
@@ -37,45 +37,24 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
     fetchData(image.image.alt, setImages)
   }, [])
 
-  function handleClick(){
-    setLightBoxStatus(!lightBoxstatus)
-    setGallery('openLightBox')
-  }
 
  function isVisible(){
 
   
     const tl = new gsap.timeline();
-    tl.to(entry.target, 0.8, { opacity: 1, y:10,  ease: Power3.easeOut,});
+    tl.to(entry.target, 1.2, { opacity: 1, y:10,  ease: Power3.easeOut,}, 0.2);
     tl.to(gridText.current, 0.8, { opacity: 1, y:-50,  ease: Power3.easeOut});
      
    
 
  }
 
-  // useEffect(() => {
-  //   if (inView) {
-      
-  //   const tl = new gsap.timeline();
-
-  //   tl.to(ref, 0.8, { opacity: 0, y:100, scale:1, ease: Power3.easeOut, stagger: 0.1,},.2);
-  //   tl.to(gridText.current, 0.8, { opacity: 1, y:-50, stagger: 0.1, ease: Power3.easeOut});
-     
-  //   }
-  // }, [inView])
-
   return (
     <div className="GridItem">
- 
 
     <h1 className='ProjectTitle'ref={gridText}> {image.image.alt}</h1>
-     
-      { image ? <img src={image.image.url} onClick={handleClick} className="titleCover" ref={ref}  isIntersection={entry.isIntersecting ? isVisible() : null}  alt='' loading="lazy"/> :  null }
-      <Suspense fallback={<Spinner />}>
-          {/* { lightBoxstatus ? <Lightbox initImage={image.image.url} images={images} setter={setLightBoxStatus} gallerySetter={setGallery} galleryStatus={galleryStatus} />: null } */}
-      </Suspense> 
+    <img src={image.image.url} href={image.image.alt} className="titleCover" ref={ref}  isIntersection={entry.isIntersecting ? isVisible() : null}  alt='' loading="lazy"/> 
     
-  
     </div>
   );
 }

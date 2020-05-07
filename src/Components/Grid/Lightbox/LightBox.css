@@ -1,252 +1,73 @@
+.projectPage{
+    display: flex;
+    height: 100vh;
+} 
 
-/* /Users/soheima/git/guissepi-portfolio/src/Components/Grid/Lightbox/fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf */
-@font-face {
-    src: url('./fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf'); /* IE < 9 */
-    src: url('./fonts/ScienceGothic[YOPQ,wdth,wght,slnt].ttf') format("woff2");
-    font-family: 'Fit-Variable';
-    font-style: normal;
-    font-weight: normal;
-    }
-    
-.lightbox{
-    display: grid;
-    font-family: 'Fit-Variable';
-    grid-gap: 1rem;
-    grid-template-columns: 1fr minmax(1vw, max-content) 1fr;
-    background-color: rgb(57, 59, 58, 1);
-    color:#ffffff;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.project {
+    display: flex;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: #fff #000;
+    /* margin-top: 5rem; */
+  }
+  
+  .project::-webkit-scrollbar {
+    height: 1rem;
+  }
+  
+  .project::-webkit-scrollbar-track {
+    /* background-color: #000; */
+  }
+  
+  .project::-webkit-scrollbar-thumb {
+    /* background-color: #000;
+    background-image: linear-gradient(#000 0, #000 0.25rem, #fff 0.25rem, #fff 0.75rem, #000 0.75rem); */
+  }
+  
+  .project > * {
+    flex: 0 0 auto;
+  }
+  
+  
+  .project > img {
     height: 100%;
-    z-index: 20;
-    align-content: center;
-    justify-content: center;
-    justify-content: center;
-}
-
-.openLightBox {
-    animation: openAnimation ease 1s; 
-    
-    animation-fill-mode: forwards;
-}
-
-.closeLightBox{
-    animation: CloseAnimation ease-out 1s; 
-    
-    animation-fill-mode: forwards;
-}
-
-.lightbox p {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: baseline;
-    margin-right: 1em;
-    justify-self: flex-end;
-    font-size: 2em;
-    margin-top: 1em;
-}
-
-
-
-.lightImage {
-    max-height: calc( 100vh - 40px);
-    grid-column: 2;
-    /* grid-row: 2/span 2; */
+    flex-basis: auto;
+    width: 24rem;
     align-self: center;
-    justify-self: center;
-    /* animation: fadeInImage ease 1s; 
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
-   
-    animation-delay: 0.6s; */
-   
+    object-fit: contain;
+  }
+ 
+  
+  .project > * + * {
+    margin-left: 1rem;
+  }
+  
+  .project.overflowing {
+    padding-bottom: 1rem;
+  }
+
+  .text{
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      margin-left: 2rem;
+  }
+.text > p {
+    max-width: 150px;
+    text-align: left;
+    padding-top: 1em;
 }
 
-.fadeIn{
-    -webkit-animation: example1Front 0.6s linear forwards;
+.text > h1 {
+    z-index: 2;
 }
 
-@keyframes example1Front{
-	0% { opacity: 1; }
-	100% { opacity: 0; }
-}
-
-.shownLightbox button{
-    visibility: visible;
-}
-
-.hiddenLightbox button{
-    visibility: hidden;
-}
-.shownLightbox p {
-    visibility: visible;
-    justify-self: end;
-    align-self: center;
-}
-
-.hiddenLightbox p{
-    visibility: hidden;
-}
-
-button {
-    display: inline-block;
-    font-family: 'Fit-Variable';
-    border: none;
-    margin: 0;
-    text-decoration: none;
-    background: none;
-    color:#ffffff;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1.5em;
-    text-transform: uppercase;
-
-
-}
-
-
-  button.next:hover,
-  button .next:focus {
-    font-variation-settings: "wght" 900, "wdth" 130;
-}
-
-button.back:hover,
-button .back:focus {
-  font-variation-settings: "wght" 900, "wdth" 130;
-}
-
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
-
-button:active {
-    transform: scale(0.99);
-}
-
-
-
-
-
-.close {
-    grid-column: 3;
-    align-self: baseline;
-    grid-row: 1;
-    margin-top: 1em;
-    
-   
-}
-.next{
-    grid-column: 3;
-    grid-row: 1;
-    align-self: center;
-    justify-self: center;
-    font-variation-settings: "wght" 100, "wdth" 100;
-    transition:  font-variation-settings 0.2s;
-}
-.back{
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-    justify-self: center;
-    font-variation-settings: "wght" 100, "wdth" 100;
-    transition:  font-variation-settings 0.2s;
-}
-.info{
-    grid-column: 2;
-    grid-row: 3;
-    align-self: center;
-    justify-self: center;
-    font-variation-settings: "wght" 100, "wdth" 100;
-    transition:  font-variation-settings 0.2s;
-}
-
-.eye{
-    width: 1em;
-    grid-column: 3;
-    align-self: end;
-    justify-self: end;
-}
-
-
-
-.hideControls{
-    visibility: hidden;
-}
-
-@keyframes openAnimation { 
-    0% { 
-        width: 0;
-        
-
-    } 
-    100% { 
-        
-        width: 100vw; 
-    } 
-} 
-
-@keyframes CloseAnimation{ 
-    0% { 
-        width: 100vw; opacity:1;
-    } 
-    30% { 
-        opacity: 0; width: 30vw;
-    }
-    100% {     
-        width: 0; opacity: 0; 
-    } 
-} 
-
-@keyframes fadeInImage { 
-    0% { 
-        opacity: 0; 
-    }
-    
-    100% { 
-        opacity: 100%; 
-    } 
-}
 
 @media only screen 
   and (min-device-width: 375px) 
   and (max-device-width: 667px) 
   and (-webkit-min-device-pixel-ratio: 2) { 
 
-    .button{
-        font-size: .8em;
-    }
-    .lightImage {
-        max-width: calc( 100vh - 20rem);
-    }
-
-    .back{
-      
-        grid-column: 2;
-        grid-row: 4;
-        align-self: center;
-        justify-self: center;
-    }
-    .next{
-        grid-column: 2;
-        grid-row: 3;
-        align-self: center;
-        justify-self: center;
-    }
-    .close {
-        grid-column: 2;
-        align-self: baseline;
-        grid-row: 1;
-        align-self: center;
-        justify-self: end;
-    }
-    .lightbox p {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: start;
-        justify-self: start;
-    }
+    
 }

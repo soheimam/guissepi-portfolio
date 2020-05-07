@@ -4,8 +4,7 @@ import GridItem from './GridItem/GridItem';
 import {PrismicContext} from '../../Contexts/PrismicContext';
 import { TweenMax } from "gsap";
 import Lottie from 'react-lottie';
-import animationData from './pageloadsmall.json'
-
+import animationData from './pageloadsmall.json';
 
 import logo from './logo.svg'
 
@@ -16,6 +15,7 @@ function Grid() {
   const [isLoading, setIsLoading] = useState(true);
   const [isVisable, setIsVisable] = useState('off');
   const { doc } = useContext(PrismicContext);
+  console.log(doc)
   const images = doc.images ? doc.images : [];
   // const logo1 = useRef(logo);
   // const block = useRef(null);
@@ -78,6 +78,7 @@ function Grid() {
           <div className='Lottie'>
         <Lottie options={defaultOptions} />
         </div>
+        
             <img src={logo} alt='logo' id='logo' className='Logo'/>
          
             
