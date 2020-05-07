@@ -24,19 +24,17 @@ function App() {
         </ul>
         <hr />
         <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/:project" children={<Project />} />
           <Route exact path="/">
-            
               <main className="App">
               <PrismicContextProvider>
                 <Grid />
                 </PrismicContextProvider>
               </main>
-            
           </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/:project" children={<Project />} />
         </Switch>
       </div>
 
