@@ -15,12 +15,12 @@
 }
 .ProjectTitle{
   font-size: 2.2em;
-  align-self: flex-end;
-  margin-top: -0.8em;
+  align-self: center;
+  /* margin-top: -0.8em; */
   z-index: 2;
   color: #D64B47;
   text-transform: capitalize;
-  margin-left: -1em;
+  /* margin-left: -1em; */
   opacity: 0;
   
 }

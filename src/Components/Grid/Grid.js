@@ -15,7 +15,7 @@ function Grid() {
   const [isLoading, setIsLoading] = useState(true);
   const [isVisable, setIsVisable] = useState('off');
   const { doc } = useContext(PrismicContext);
-  console.log(doc)
+  
   const images = doc.images ? doc.images : [];
   // const logo1 = useRef(logo);
   // const block = useRef(null);

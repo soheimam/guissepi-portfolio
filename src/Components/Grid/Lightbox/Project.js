@@ -18,7 +18,9 @@ function Project() {
       client.query(
         Prismic.Predicates.at("document.tags", [project])
       ).then((response) => {
+        console.log(response, 'response return')
         setImages(response.results[0].data.images)
+        console.log(response.results[0].data.images, 'images here')
       });
       
     }, [])
@@ -26,6 +28,7 @@ function Project() {
 
 
       return (
+       
       <div className='projectPage'>
       <div className='project'>
      <div className='text'>
