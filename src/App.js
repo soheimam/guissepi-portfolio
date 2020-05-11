@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import './App.css';
 import Grid from './Components/Grid/Grid';
-import Spinner from './Components/Spinner/Spinner';
+import About from './Components/About/About';
 import Project from './Components/Grid/Lightbox/Project'
 import PrismicContextProvider from './Contexts/PrismicContext';
 import {
@@ -19,15 +19,11 @@ function App() {
       <div>
         <ul>
           <li>
-            <Link to="/about">About</Link>
+            <a href="/about">About</a>
           </li>
         </ul>
         <hr />
         <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/:project" children={<Project />} />
           <Route exact path="/">
               <main className="App">
               <PrismicContextProvider>
@@ -35,6 +31,10 @@ function App() {
                 </PrismicContextProvider>
               </main>
           </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/:project" children={<Project />} />
         </Switch>
       </div>
 
@@ -42,12 +42,5 @@ function App() {
   );
 }
 
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
 
 export default App;

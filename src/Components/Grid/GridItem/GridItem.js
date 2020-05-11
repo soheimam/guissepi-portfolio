@@ -26,7 +26,7 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 
   }); 
 
-  console.log(entry)
+
   
 
   const gridText = useRef(null)
