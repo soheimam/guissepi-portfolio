@@ -4,10 +4,11 @@ import GridItem from './GridItem/GridItem';
 import {PrismicContext} from '../../Contexts/PrismicContext';
 import { TweenMax } from "gsap";
 import Lottie from 'react-lottie';
-import animationData from './pageloadsmall.json';
+import animationData from './bg.json';
+import About from '../About/About'
 
 import logo from './logo.svg'
-
+// const logo1 = useRef(logo1);
 
 function Grid() {
   // const images = doc.doc.images ? doc.doc.images : []
@@ -17,23 +18,17 @@ function Grid() {
   const { doc } = useContext(PrismicContext);
   
   const images = doc.images ? doc.images : [];
-  // const logo1 = useRef(logo);
+ 
   // const block = useRef(null);
   
-  if (images){
-    TweenMax.to(['#logo'],  2, {top:"50%" });
-    TweenMax.to(['#logo'],  2, {top:"3%"});
-
-    // for (let index = 0; index < images.length; index++) {
-     
-    
-    // TweenMax.to([`#block${index +1}`],  2, {delay: 3 + index, opacity:0});
-    //   // TweenMax.to([`block${index +1}`],  2, {delay: 5 + index, opacity:1});
-      
-    // }
-  }
+  
 
   useEffect(() => {
+
+    //  TweenMax.to(['#logo'],  2, {top:"50%",  });
+    //  TweenMax.to(['#logo'],  0.8, {top:"0%", });
+
+      
     setTimeout(() => {
       if(isLoading){
           setIsLoading(false)
@@ -45,21 +40,16 @@ function Grid() {
 
 
     
-// // gsap.to("#id", {y: 50, duration: 1, delay: 1});
 
-//     // TweenMax.fromTo([logo1.current], 
-//     //   1, 
-//     //   {top:"50%" }, 
-//     //   {top:"0%"});
 
-//       // for (let i = 0; i < GridItem.length; index++) {
-//       //   const element = array[i];
+      // for (let i = 0; i < GridItem.length; index++) {
+      //   const element = array[i];
         
-//       // }
-//       // TweenMax.from([griditem.current], 
-//       //   1, 
-//       // {autoAlpha:0, delay: 2 }, 
-//       // {autoAlpha:1,immediateRender:false});
+      // }
+      // TweenMax.from([griditem.current], 
+      //   1, 
+      // {autoAlpha:0, delay: 2 }, 
+      // {autoAlpha:1,immediateRender:false});
 
 //   },[]);
       const defaultOptions = {
@@ -75,14 +65,12 @@ function Grid() {
 
       return (
         <div className="Grid">
-          <div className='Lottie'>
-        <Lottie options={defaultOptions} />
-        </div>
-        
-            <img src={logo} alt='logo' id='logo' className='Logo'/>
+        {/* <Lottie options={defaultOptions} /> */}
          
-            
+          
              {!isLoading ? images.map((image, key) =><GridItem image={image} isVisable={isVisable} imageId={key} loading="lazy"/>): null}
+      
+      
         </div>
       )
 

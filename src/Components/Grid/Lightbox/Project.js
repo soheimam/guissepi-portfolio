@@ -65,27 +65,18 @@ function Project() {
        
       <div className='projectPage'>
  
-      <div className='project'>
+      
      <div className='text'>
      <h1>Test</h1>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
      </div>
+     <div className='image'>
           {images.map((image, i) => {
-            return  <img src={image.image.url}  alt='' loading="lazy"/>   
+            return    <img src={image.image.url}  alt='' loading="lazy"/>  
           })}
         
-     </div>
+          </div> 
 
-{console.log(scrollX)}
-     <motion.div className='progressBar' 
-      animate={{
-          position: 'fixed',
-          x: 10,
-          y: 10, 
-          width: scrollX,
-         
-          }}
-      />
 
       </div>
      

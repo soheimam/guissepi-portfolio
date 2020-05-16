@@ -35,14 +35,15 @@
 }
 
 .Logo{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    width: 80%;
-    padding-bottom: 2rem;
-    z-index: 22;
+    /* position: fixed; */
+    /* left: 50%;
+    top: 50%; */
+    /* display: block; */
+    /* transform: translate(-50%, -50%); */
+    /* z-index: -1; */
+    /* width: 80%; */
+    /* padding-bottom: 2rem;
+    z-index: 22; */
    
 }
 
