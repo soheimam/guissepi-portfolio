@@ -21,13 +21,10 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 
   
   const [ref, entry] = useObserver({
-    threshold: 0.7,
+    threshold: 0.2,
     rootMargin: '0px'
 
   }); 
-
-
-  
 
   const gridText = useRef(null)
 
@@ -42,7 +39,7 @@ const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 
   
     const tl = new gsap.timeline();
-    tl.to(entry.target, 1.2, { opacity: 1, y:10,  ease: Power3.easeOut,}, 0.2);
+    tl.to(entry.target, 1.2, { opacity: 1, y:10,  ease: Power3.easeOut,});
     tl.to(gridText.current, 0.8, { opacity: 1, y:-50,  ease: Power3.easeOut});
      
    

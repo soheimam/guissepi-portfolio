@@ -1,81 +1,47 @@
 .projectPage{
   display: flex;
   flex-wrap: nowrap;
+  flex-basis: auto;
+
+}
+
+
+
+.imageGallery{  
+  display: flex;
+  flex-wrap: nowrap;
+}
+.imgContainer{
+  min-width: 40rem;
+  margin: 5px;
+  /* object-fit: cover; */
+}
+.imageGallery img {
+  object-fit: contain;
+  /* object-position: 50% 50%; */
+
+  height: 100%;
   width: 100%;
-  /* overflow-x: ; */
+}
 
-   
-} 
-
-.project:-webkit-scrollbar {
+.imageGallery:-webkit-scrollbar {
   display: none;
 }
   
-
- 
-  .project > * {
-    flex: 0 0 auto;
-  }
-  
-  
-  .image{
-    
-    flex: 0 0 auto;
-    overflow: auto;
-    /* object-fit: cover; */
-    /* width: 550rem; */
-    /* padding: 0.5em; */
-    
-    /* flex-basis: auto; */
-   
-    
-  }
-
-  /* .image::-webkit-scrollbar {
-    display: none;
-  } */
-  .image img {
-    width: 24rem;
-    margin: 0.5em;
-    
-  }
-  .project > img {
-    height: 100%;
-    flex-basis: auto;
-    width: 24rem;
-    align-self: center;
-    object-fit: contain;
-  }
-
-  .project img:last-child {
-    margin-right: 1em;
-  }
- 
-  
-  .project > * + * {
-    margin-left: 1rem;
-  }
-  
-  .project.overflowing {
-    padding-bottom: 1rem;
-  }
-
-  .text{
+.text{
       display: flex;
       flex-direction: column;
       align-self: center;
       margin-left: 2rem;
      
-  }
+} 
 .text > p {
     width: 15rem;
     text-align: left;
     padding-top: 1em;
 }
 
-.text > h1 {
-    z-index: 2;
-}
+
 
 
 @media only screen 

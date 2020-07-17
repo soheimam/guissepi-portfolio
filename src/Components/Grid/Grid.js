@@ -69,8 +69,8 @@ function Grid() {
          
           
              {!isLoading ? images.map((image, key) =><GridItem image={image} isVisable={isVisable} imageId={key} loading="lazy"/>): null}
-      
-      
+{/*       
+             <About isVisable={isVisable}/> */}
         </div>
       )
 
