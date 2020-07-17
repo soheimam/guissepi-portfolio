@@ -40,7 +40,10 @@ function Project() {
      
         setImages(response.results[0].data.images)
         setHeader(response.results[0].data.description[0].text)
-        // setInfo(response.results[0].data.title[0].text)
+        setInfo(response.results[0].data.info1[0].text)
+
+        console.log(response.results[0].data.info1[0].text)
+        
       });
    
     }, [])

@@ -36,9 +36,13 @@
      
 } 
 .text > p {
-    width: 15rem;
+    min-width: 15rem;
     text-align: left;
     padding-top: 1em;
+}
+
+.text h1{
+  text-transform: capitalize; 
 }
 
 
